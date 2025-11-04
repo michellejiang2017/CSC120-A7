@@ -11,7 +11,7 @@ public class Library extends Building implements LibraryRequirements{
    */
     public Library(String name, String address, int nFloors) {
       super(name, address, nFloors); 
-      Hashtable<String, Boolean> collection = new Hashtable<String, Boolean>(); 
+      this.collection = new Hashtable<String, Boolean>(); 
       System.out.println("You have built a library: 📖");
     }
   
@@ -79,7 +79,13 @@ public class Library extends Building implements LibraryRequirements{
      * prints out the entire collection in an easy-to-read way (including checkout status)
      */
     public void printCollection() { 
-      System.out.println(this.collection.toString());
+      System.out.println(this.name + "'s Collection");
+      System.out.println("---------------------------");
+      System.out.println("Title Name | Availability");
+      System.out.println("--------------------------");
+      for (String key: collection.keySet()) { 
+        System.out.println(key + " | " + collection.get(key));
+      }
     }
 
     public static void main(String[] args) {
@@ -87,7 +93,10 @@ public class Library extends Building implements LibraryRequirements{
       String[] titles = {"The Hunger Games", "Divergent", "The Giver", "Geronimo Stilton", "Braiding Sweetgrass", "Coding for Dummies", "The Night Ends with Fire"}; 
       for (int i=0; i< titles.length; i++) { 
         library.addTitle(titles[i]);
+        System.out.println(titles[i] + " added.");
       }
+      library.checkOut(titles[3]);
+      library.printCollection();
     }
   
   }
