@@ -1,12 +1,93 @@
-/* This is a stub for the Library class */
-public class Library {
+import java.util.Hashtable;
 
-    public Library() {
+public class Library extends Building implements LibraryRequirements{
+
+  private Hashtable<String, Boolean> collection; 
+  /**
+   * Constructor for Library class
+   * @param name Library's name
+   * @param address Library's address
+   * @param nFloors Number of floors in library
+   */
+    public Library(String name, String address, int nFloors) {
+      super(name, address, nFloors); 
+      Hashtable<String, Boolean> collection = new Hashtable<String, Boolean>(); 
       System.out.println("You have built a library: 📖");
     }
   
+    /**
+     * adds title to library collection 
+     * @param title the title to be added 
+     */
+    public void addTitle(String title) { 
+      this.collection.put(title, true); 
+    }
+
+    /**
+     * removes title from collection 
+     * @param title the title to be removed
+     * @return return the title that was removed
+     */
+    public String removeTitle(String title) { 
+      this.collection.remove(title); 
+      return title; 
+    }
+    
+    /**
+     * checks out a book by changing the value of the respective title to false 
+     * @param title of book to be checked out 
+     */
+    public void checkOut(String title) { 
+      this.collection.replace(title, false); 
+    }
+
+    /**
+     * returns the book by changing the value of the respective title to true 
+     * @param title the book to be returned
+     */
+    public void returnBook(String title) { 
+      this.collection.replace(title, true); 
+    }
+    
+    /**
+     * returns true if the title appears as a key in the Libary's collection, false otherwise
+     * @param title the book that is being tested 
+     * @return whether or not the library has the title in its collection
+     */
+    public boolean containsTitle(String title) { 
+     if (this.collection.containsKey(title)) { 
+      return true; 
+     } else {
+      return false; 
+     }
+    }
+    
+    /**
+     * returns true if the title is currently available, false otherwise
+     * @param title the book that is being tested
+     * @return whether or not the book is available 
+     */
+    public boolean isAvailable(String title) { 
+      if (this.collection.get(title)) {
+        return true; 
+      } else {
+        return false; 
+      }
+    }
+
+    /**
+     * prints out the entire collection in an easy-to-read way (including checkout status)
+     */
+    public void printCollection() { 
+      System.out.println(this.collection.toString());
+    }
+
     public static void main(String[] args) {
-      new Library();
+      Library library = new Library("Neilson Library", "123 Chapin Street", 4);
+      String[] titles = {"The Hunger Games", "Divergent", "The Giver", "Geronimo Stilton", "Braiding Sweetgrass", "Coding for Dummies", "The Night Ends with Fire"}; 
+      for (int i=0; i< titles.length; i++) { 
+        library.addTitle(titles[i]);
+      }
     }
   
   }
