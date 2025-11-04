@@ -1,4 +1,7 @@
 Use this file to record your reflection on this assignment.
 
 - What are your initial impressions of how `Inheritance` affects your programming?
+It allowed me to be more efficient in that I could basically reuse code without rewriting it all over again. The constructors were useful for each type of building since I didn't have to rewrite the constructor. I was able to then add onto the building "template" to tailor it for each of the different types of buildings (for example, the restock method for the cafe class). 
+
 - What worked, what didn't, what advice would you give someone taking this course in the future?
+I found the readme a bit confusing for the cafe class but I looked into the slack and thinking of it in terms of real life made it much easier for me to think through the process. I think there may still be some errors in my code since I'm not sure if my restock method and sell coffee method work as intended...but I'll improve it if that's not the case. What worked for me was using the geeksforgeeks website to learn more about hashtables and how they work and the methods present with them, what didn't work was trying to assume what the methods were myself...I would advise people to use the online documentation thoroughly and look carefully at the readme. 
