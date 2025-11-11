@@ -6,6 +6,9 @@ public class House extends Building implements HouseRequirements{
 
   /** 
    * Constructor for House Class 
+   * @param name the name of the house 
+   * @param address the house's address 
+   * @param nFloors the number of floors in the house 
    */
   public House(String name, String address, int nFloors, boolean hasDiningRoom) { 
     super(name, address, nFloors); 
